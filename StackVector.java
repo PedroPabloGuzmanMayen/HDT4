@@ -65,5 +65,10 @@ public class StackVector<E> extends AbstractStack<E> {
     public int size() {
         return vector.size();
     }
+
+    @Override
+    public void clear() {
+        this.vector.clear();
+    }
     
 }

@@ -48,4 +48,11 @@ public interface Stack<E> {
     */
    public int size();
 
+
+   /**
+    * pre:
+    * post: clears the stack
+    */
+   public void clear();
+
 }

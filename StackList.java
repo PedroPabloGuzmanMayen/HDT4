@@ -47,5 +47,10 @@ public class StackList<E> extends AbstractStack<E> {
     public int size() {
         return this.list.size();
     }
+
+    @Override
+    public void clear() {
+        this.list.clear();
+    }
     
 }

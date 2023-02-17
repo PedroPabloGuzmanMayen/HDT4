@@ -1,5 +1,5 @@
 
-public class Postfix_Convertor<T> {
+public class Postfix_Convertor {
 	
 	private String postfix;
 	public Postfix_Convertor(Stack<String> stack, String expression) {
@@ -10,13 +10,15 @@ public class Postfix_Convertor<T> {
 				this.postfix += expression.charAt(i)+"/n";
 				
 			}
-			else if (String.valueOf(c) == "+" ) {
+			else if (String.valueOf(c) == "+" || String.valueOf(c) == "-" || String.valueOf(c) == "*" || String.valueOf(c) == "/" ) {
 				stack.push(String.valueOf(c));
 			}
 			else if (String.valueOf(c) == "(") {
 				
 			}
-			
+			else if (String.valueOf(c) == ")") {
+				
+			}
 			
 		}
 	}

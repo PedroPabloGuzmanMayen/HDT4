@@ -77,8 +77,17 @@ public class DoublyLinkedList<E> extends AbstractList<E> {
 
     @Override
     public E get(int index) {
-        // TODO Auto-generated method stub
-        return null;
+        if (index >= 0 && index < this.count && !isEmpty()) {
+            int counter = 0;
+            DoublyLinkedNode<E> tempNode = head;
+            while (counter != index) {
+                tempNode = tempNode.getNextElement();
+                counter++;
+            }
+            return tempNode.getData();
+        } else {
+            throw new NoSuchElementException("No element at index \"" + index + "\"");
+        }
     }
 
     @Override

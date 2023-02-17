@@ -3,7 +3,7 @@ import java.util.EmptyStackException;
 
 public class StackArrayList<E> extends AbstractStack<E> {
 
-    private ArrayList<E> arrayList;
+    protected ArrayList<E> arrayList;
 
     public StackArrayList() {
         this.arrayList = new ArrayList<E>();

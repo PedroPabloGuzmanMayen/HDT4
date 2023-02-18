@@ -1,4 +1,3 @@
-import java.io.File;
 import java.util.Scanner;
 /**
  * 
@@ -14,30 +13,31 @@ public class Main {
 
         ICalculator calculator = new Calculator();
 
-        FileHandler fh = new FileHandler();
-        File operations = fh.createFile("Operations.txt");
 
         String DIVIDER = "-----------------------------------------------------------";
         Scanner sc = new Scanner(System.in);
         boolean exit = false;
         while (!exit) {
+            sc.reset();
             System.out.println(DIVIDER);
             System.out.println(
-                "1. Leer archivo y mostrar resultados\n" + 
+                "1. Ingresar una nueva expresion\n" + 
                 "2. Mostrar el ultimo resultado\n" + 
                 "3. Salir del programa"
             );
             System.out.println(DIVIDER);
             System.out.print("Ingrese una opcion: ");
-            String input = sc.next();
+            String input = sc.nextLine();
             System.out.println(DIVIDER);
             switch (input) {
-                case "1":   // Leer archivo y evaluar operaciones
-                    
+                case "1":   // Ingresar una nueva expresion
+                    String inputedExpression = sc.nextLine();
+                    System.out.println(inputedExpression);
+                    // TODO: Convertir expresion a notacion postfix
+                    // TODO: Evaluar la expresion postfix y devolver el resultado
                     break;
                 case "2":   // Mostrar el ultimo resultado calculado
-                    // TODO: Comprobar si existe un resultado previo valido y si existe, imprimirlo
-                    
+                    // TODO: Mostrar el ultimo resultado si existe
                     break;
                 case "3":   // Salir del programa
                     exit = true;

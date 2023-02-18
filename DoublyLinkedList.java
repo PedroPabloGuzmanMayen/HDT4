@@ -69,6 +69,7 @@ public class DoublyLinkedList<E> extends AbstractList<E> {
                 counter++;
             }
             tempNode.getPreviousElement().setNextElement(tempNode.getNextElement());
+            this.count--;
             return tempNode.getData();
         } else {
             throw new NoSuchElementException("No element at index \"" + index + "\"");
@@ -99,6 +100,7 @@ public class DoublyLinkedList<E> extends AbstractList<E> {
     public void clear() {
         this.head = null;
         this.tail = null;
+        this.count =  0;
     }
 
 }

@@ -77,8 +77,7 @@ public class LinkedList<E> extends AbstractList<E> {
 
     @Override
     public void add(E value) {
-        // TODO Auto-generated method stub
-        
+        addLast(value);
     }
 
     @Override

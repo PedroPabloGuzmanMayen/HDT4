@@ -82,20 +82,46 @@ public class LinkedList<E> extends AbstractList<E> {
 
     @Override
     public E remove(int index) {
-        // TODO Auto-generated method stub
-        return null;
+        if (!isEmpty()) {
+            int counter = 0;
+            Node<E> currentNode = this.head;
+            Node<E> previousNode = null;
+            while (counter != index) {
+                previousNode = currentNode;
+                currentNode = currentNode.next();
+                counter++;
+            }
+            if (index == 0)
+                this.head = currentNode.next();
+            else
+                previousNode.setNext(currentNode.next());
+            this.count--;
+            return currentNode.value();
+        } else {
+            return null;
+        }
     }
 
     @Override
     public E get(int index) {
-        // TODO Auto-generated method stub
-        return null;
+        if (!isEmpty()) {
+            int counter = 0;
+            Node<E> currentNode = this.head;
+            while (counter != index) {
+                currentNode = currentNode.next();
+                counter++;
+            }
+            this.count--;
+            return currentNode.value();
+        } else {
+            return null;
+        }
     }
 
     @Override
     public void clear() {
-        // TODO Auto-generated method stub
-        
+        this.head = null;
+        this.count = 0;
     }
 
 }

@@ -1,6 +1,11 @@
 import java.util.ArrayList;
 import java.util.EmptyStackException;
 
+/**
+ * Stack ArrayList:
+ * Implementación de Stack utilizando ArrayList
+ * @author Jose Anton, Alejandro Ortega, Pedro Pablo Guzmán
+ */
 public class StackArrayList<E> extends AbstractStack<E> {
 
     protected ArrayList<E> arrayList;

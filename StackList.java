@@ -1,10 +1,19 @@
 import java.util.EmptyStackException;
 
+/**
+ * StackList:
+ * Implementación de Stack utilizando la interfaz List de modo que pueda
+ * utilizarse con cualquier implementación de List (LinkedList, DoublyLinkedList)
+ */
 public class StackList<E> extends AbstractStack<E> {
 
     protected List<E> list;
 
-    // listImplementation puede ser "linked" o "doublylinked"
+    /**
+     * Constructor de la clase StackList
+     * 
+     * @param listImplementation La implementacion de List a utilizar ("Linked" o "DoublyLinked")
+     */
     public StackList(String listImplementation) {
         listImplementation = listImplementation.toLowerCase().trim();
         switch (listImplementation) {

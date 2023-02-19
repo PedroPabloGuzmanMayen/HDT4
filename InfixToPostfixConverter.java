@@ -9,38 +9,6 @@ public class InfixToPostfixConverter {
 	private char[] operators = {'+', '-', '*', '/', '^'};
 	
 	private String postfix;
-	public InfixToPostfixConverter(Stack<String> stack, String expression) {
-		
-		for (int i = 0; i< expression.length(); i++) {
-			char c = expression.charAt(i);
-			if (Character.isDigit(c)) {
-				this.postfix += expression.charAt(i)+"\n";
-				
-			}
-			else if (String.valueOf(c) == "+" || String.valueOf(c) == "-" || String.valueOf(c) == "*" || String.valueOf(c) == "/" ) {
-				stack.push(String.valueOf(c));
-			}
-			else if (String.valueOf(c) == "(") {
-	
-			}
-			else if (String.valueOf(c) == ")") {
-				
-				while (!stack.empty()) {
-					postfix+=stack.pop()+"\n";
-				}
-			}
-			
-		}
-		if (!stack.empty()) {
-			while (!stack.empty()) {
-				postfix+=stack.pop()+"\n";
-			}
-		}
-	}
-	
-	public String getPostfixE() {
-		return this.postfix;
-	}
 
 	public String convertToPostfix(String infixExpression) {
 		StackVector<Character> stack = new StackVector<Character>();

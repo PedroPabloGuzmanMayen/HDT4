@@ -19,15 +19,20 @@ public class Postfix_Convertor {
 				stack.push(String.valueOf(c));
 			}
 			else if (String.valueOf(c) == "(") {
-				stack.push(String.valueOf(c));
+	
 			}
 			else if (String.valueOf(c) == ")") {
 				
 				while (!stack.empty()) {
-					
+					postfix+=stack.pop()+"\n";
 				}
 			}
 			
+		}
+		if (!stack.empty()) {
+			while (!stack.empty()) {
+				postfix+=stack.pop()+"\n";
+			}
 		}
 	}
 	

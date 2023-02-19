@@ -7,8 +7,9 @@ class InfixTest {
 	@Test
 	void test() {
 		String infix = "(1+2)*9";
-		InfixToPostfixConverter iF = new InfixToPostfixConverter();
-		System.out.println(iF.convertToPostfix(infix));
+		String expectedPostifx = "12+9*";
+		InfixToPostfixConverter iF = new InfixToPostfixConverter(new StackVector<Character>());
+		assertEquals(expectedPostifx, iF.convertToPostfix(infix));
 	}
 
 }

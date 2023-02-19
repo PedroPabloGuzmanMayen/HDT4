@@ -14,7 +14,7 @@ class CalculatorTest {
 	 * Este método prueba el método evaluate de la clase calculadora
 	 */
 	void Calculatortest() {
-		Calculator calc = new Calculator();
+		Calculator calc = new Calculator(new StackVector<Integer>());
 		Double res = calc.evaluate("6 2 3 + *");
 		Double expected = 30.0;
 		assertEquals(expected, res);
@@ -24,7 +24,7 @@ class CalculatorTest {
 	 * Este método prueba el método get previous de calculadora
 	 */
 	void lastResultTest() {
-		Calculator calc = new Calculator();
+		Calculator calc = new Calculator(new StackVector<Integer>());
 		String expresion = "6 2 3 + *";
 		calc.evaluate(expresion);
 		Double last = calc.getPrevious();

@@ -1,5 +1,3 @@
-import java.util.NoSuchElementException;
-
 public class DoublyLinkedList<E> extends AbstractList<E> {
 
     protected int count;
@@ -63,16 +61,20 @@ public class DoublyLinkedList<E> extends AbstractList<E> {
     public E remove(int index) {
         if (index >= 0 && index < this.count && !isEmpty()) {
             int counter = 0;
-            DoublyLinkedNode<E> tempNode = head;
-            while (counter != index) {
-                tempNode = tempNode.getNextElement();
-                counter++;
+            DoublyLinkedNode<E> tempNode = this.head;
+            if (index == 0) {
+                this.head = tempNode.getNextElement();
+            } else {
+                while (counter != index) {
+                    tempNode = tempNode.getNextElement();
+                    counter++;
+                }
+                tempNode.getPreviousElement().setNextElement(tempNode.getNextElement());
+                this.count--;
             }
-            tempNode.getPreviousElement().setNextElement(tempNode.getNextElement());
-            this.count--;
             return tempNode.getData();
         } else {
-            throw new NoSuchElementException("No element at index \"" + index + "\"");
+            throw new IndexOutOfBoundsException("No element at index \"" + index + "\"");
         }
     }
 
@@ -87,7 +89,7 @@ public class DoublyLinkedList<E> extends AbstractList<E> {
             }
             return tempNode.getData();
         } else {
-            throw new NoSuchElementException("No element at index \"" + index + "\"");
+            throw new IndexOutOfBoundsException("No element at index \"" + index + "\"");
         }
     }
 

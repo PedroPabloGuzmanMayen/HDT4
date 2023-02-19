@@ -82,7 +82,7 @@ public class LinkedList<E> extends AbstractList<E> {
 
     @Override
     public E remove(int index) {
-        if (!isEmpty()) {
+        if (index >= 0 && index < size() && !isEmpty()) {
             int counter = 0;
             Node<E> currentNode = this.head;
             Node<E> previousNode = null;
@@ -98,13 +98,13 @@ public class LinkedList<E> extends AbstractList<E> {
             this.count--;
             return currentNode.value();
         } else {
-            return null;
+            throw new IndexOutOfBoundsException("No element at index \"" + index + "\"");
         }
     }
 
     @Override
     public E get(int index) {
-        if (!isEmpty()) {
+        if (index >= 0 && index < size() && !isEmpty()) {
             int counter = 0;
             Node<E> currentNode = this.head;
             while (counter != index) {
@@ -114,7 +114,7 @@ public class LinkedList<E> extends AbstractList<E> {
             this.count--;
             return currentNode.value();
         } else {
-            return null;
+            throw new IndexOutOfBoundsException("No element at index \"" + index + "\"");
         }
     }
 

@@ -6,7 +6,7 @@ import org.junit.jupiter.api.Test;
  * @version 1.0.0
  *
  */
-class StackOperationsTest {
+class StackVectorTest {
 	StackVector<Integer> sv = new StackVector<Integer>(); //Esta variable almacenara el stack que se usará para todas las pruebas
 	
 	@Test

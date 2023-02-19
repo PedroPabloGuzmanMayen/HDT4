@@ -12,8 +12,8 @@ public class Singleton {
     /**
      * Constructor de Singleton
      */
-    private Singleton() {
-        this.calculator = new Calculator();
+    private Singleton(Stack<Integer> stack) {
+        this.calculator = new Calculator(stack);
     }
 
     /**
@@ -21,10 +21,10 @@ public class Singleton {
      * 
      * @return Instancia de Singleton
      */
-    public static Singleton getInstance(){
+    public static Singleton getInstance(Stack<Integer> stack){
 
         if(singleInstance == null){
-            singleInstance = new Singleton();
+            singleInstance = new Singleton(stack);
         }
         /*indica que si singleInstance no tiene valor que se le asigne un nuevo valor en calculadora*/
         return singleInstance;

@@ -11,8 +11,15 @@ public class Main {
 	 */
     public static void main(String[] args) {
 
-        ICalculator calculator = new Calculator();
+        // StackFactory
+        StackFactory<Integer> stackFactoryInt = new StackFactory<Integer>();
+        StackFactory<Character> stackFactoryChar = new StackFactory<Character>();
 
+        // Singleton de la clase calculadora
+        Singleton calcSingleton = Singleton.getInstance(stackFactoryInt.getStack("Vector"));
+        
+        // Infix to Postfix
+        InfixToPostfixConverter postfixConvertor = new InfixToPostfixConverter(stackFactoryChar.getStack("ArrayList"));
 
         String DIVIDER = "-----------------------------------------------------------";
         Scanner sc = new Scanner(System.in);
@@ -32,12 +39,21 @@ public class Main {
             switch (input) {
                 case "1":   // Ingresar una nueva expresion
                     String inputedExpression = sc.nextLine();
-                    System.out.println(inputedExpression);
-                    // TODO: Convertir expresion a notacion postfix
-                    // TODO: Evaluar la expresion postfix y devolver el resultado
+                    try {
+                        postfixConvertor = new InfixToPostfixConverter(new StackVector<Character>());
+                        String postfixExp = postfixConvertor.convertToPostfix(inputedExpression);
+                        System.out.println("Converted Infix Expression: " + postfixExp);
+                        System.out.println("Postifx evaluation result: " + calcSingleton.geCalculator().evaluate(postfixExp));
+                    } catch (Exception e) {
+                        System.out.println(e.getMessage());
+                    }
                     break;
                 case "2":   // Mostrar el ultimo resultado calculado
-                    // TODO: Mostrar el ultimo resultado si existe
+                    double previousResult = calcSingleton.geCalculator().getPrevious();
+                    if (previousResult != 0)
+                        System.out.println("Previous result: " + previousResult);
+                    else 
+                        System.out.println("No previous result found.");
                     break;
                 case "3":   // Salir del programa
                     exit = true;

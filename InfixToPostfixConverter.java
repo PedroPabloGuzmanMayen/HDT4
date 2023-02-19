@@ -6,12 +6,28 @@
  */
 public class InfixToPostfixConverter {
 
-	private char[] operators = {'+', '-', '*', '/', '^'};
-	
-	private String postfix;
+	private Stack<Character> stack;
 
-	public String convertToPostfix(String infixExpression) {
-		StackVector<Character> stack = new StackVector<Character>();
+	private char[] operators = {'+', '-', '*', '/', '^'};
+
+	/**
+	 * Constructor de la clase InfixToPostfixConverter.
+	 * 
+	 * @param stack La implementación de Stack<Character> que se utilizará
+	 */
+	public InfixToPostfixConverter(Stack<Character> stack) {
+		this.stack = stack;
+	}
+	
+	/**
+	 * Convierte una expresión aritmética en notación Infix a su equivalente en notación Postfix
+	 * Utilizando una implementación de Stack.
+	 * 
+	 * @param infixExpression La expresión Infix a convertir
+	 * @return El equivalente en notación Postfix de infixExpression
+	 */
+	public String convertToPostfix(String infixExpression) throws ArithmeticException {
+		this.stack.clear();
 		StringBuilder postfixExp = new StringBuilder("");
 
 		for (char c : infixExpression.trim().toCharArray()) {

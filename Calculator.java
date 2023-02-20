@@ -30,8 +30,8 @@ public class Calculator implements ICalculator {
                 stack.push(Integer.parseInt(String.valueOf(element)));
             } else if (isOperator(element)) {
                 try {
-                    int operandA = stack.pop();
                     int operandB = stack.pop();
+                    int operandA = stack.pop();
                     switch (element) {
                         case '+':
                             stack.push(operandA + operandB);

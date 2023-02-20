@@ -55,7 +55,11 @@ public class InfixToPostfixConverter {
 		}
 		return postfixExp.toString();
 	}
-	
+	/**
+	 * Analiza si el caracter es un operador
+	 * @param c el caracter a ser analizado
+	 * @return true si el caracter es un operador, false si no lo es
+	 */
 	private boolean isOperator(char c) {
 		for (char o : this.operators) {
 			if (c == o)
@@ -63,7 +67,11 @@ public class InfixToPostfixConverter {
 		}
 		return false;
 	}
-
+	/**
+	 * Este método devuelve un número el cuál indica la precedencía del operador
+	 * @param c el caracter a ser evaluado
+	 * @return 1 si el operador es una suma o resta, 2 si el operador es una división o multiplicación, 3 si es una potencia, -1 si no es nada de eso
+	 */
 	private int precedence(char c) {
 		switch (c) {
 			case '+':

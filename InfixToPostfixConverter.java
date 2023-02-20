@@ -55,7 +55,7 @@ public class InfixToPostfixConverter {
 		}
 		return postfixExp.toString();
 	}
-
+	
 	private boolean isOperator(char c) {
 		for (char o : this.operators) {
 			if (c == o)
